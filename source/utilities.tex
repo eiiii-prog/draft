@@ -21202,7 +21202,7 @@ namespace std {
 
 \begin{codeblock}
 namespace std {
-  class stacktrace_entry {
+  class @\libglobal{stacktrace_entry}@ {
   public:
     using native_handle_type = @\impldef{\tcode{stacktrace_entry::native_handle_type}}@;
 
@@ -21241,6 +21241,7 @@ The class \tcode{stacktrace_entry} models
 
 \rSec3[stacktrace.entry.ctor]{Constructors}
 
+\indexlibraryctor{stacktrace_entry}%
 \begin{itemdecl}
 constexpr stacktrace_entry() noexcept;
 \end{itemdecl}
@@ -21253,6 +21254,7 @@ constexpr stacktrace_entry() noexcept;
 
 \rSec3[stacktrace.entry.obs]{Observers}
 
+\indexlibrarymember{native_handle}{stacktrace_entry}%
 \begin{itemdecl}
 constexpr native_handle_type native_handle() const noexcept;
 \end{itemdecl}
@@ -21268,6 +21270,7 @@ Successive invocations of the \tcode{native_handle} function
 for an unchanged \tcode{stacktrace_entry} object return identical values.
 \end{itemdescr}
 
+\indexlibrarymember{operator bool}{stacktrace_entry}%
 \begin{itemdecl}
 constexpr explicit operator bool() const noexcept;
 \end{itemdecl}
@@ -21287,6 +21290,7 @@ errors other than memory allocation errors
 as ``no information available'' and do not throw in that case.
 \end{note}
 
+\indexlibrarymember{description}{stacktrace_entry}%
 \begin{itemdecl}
 string description() const;
 \end{itemdecl}
@@ -21303,6 +21307,7 @@ or an empty string.
 the internal data structures or the resulting string cannot be allocated.
 \end{itemdescr}
 
+\indexlibrarymember{source_file}{stacktrace_entry}%
 \begin{itemdecl}
 string source_file() const;
 \end{itemdecl}
@@ -21320,6 +21325,7 @@ whose evaluation is represented by \tcode{*this}, or an empty string.
 the internal data structures or the resulting string cannot be allocated.
 \end{itemdescr}
 
+\indexlibrarymember{source_line}{stacktrace_entry}%
 \begin{itemdecl}
 uint_least32_t source_line() const;
 \end{itemdecl}
@@ -21342,6 +21348,7 @@ the internal data structures or the resulting string cannot be allocated.
 
 \rSec3[stacktrace.entry.cmp]{Comparison}
 
+\indexlibrarymember{operator==}{stacktrace_entry}%
 \begin{itemdecl}
 friend constexpr bool operator==(const stacktrace_entry& x, const stacktrace_entry& y) noexcept;
 \end{itemdecl}
@@ -21359,7 +21366,7 @@ the same stacktrace entry or both \tcode{x} and \tcode{y} are empty.
 
 \begin{codeblock}
   template<class Allocator>
-  class basic_stacktrace {
+  class @\libglobal{basic_stacktrace}@ {
   public:
     using value_type = stacktrace_entry;
     using const_reference = const value_type&;
@@ -21452,6 +21459,7 @@ are different from those required for a container.
 
 \rSec3[stacktrace.basic.ctor]{Creation and assignment}
 
+\indexlibrarymember{current}{basic_stacktrace}%
 \begin{itemdecl}
 static basic_stacktrace current(const allocator_type& alloc = allocator_type()) noexcept;
 \end{itemdecl}
@@ -21476,6 +21484,7 @@ the current thread of execution.
 \end{note}
 \end{itemdescr}
 
+\indexlibrarymember{current}{basic_stacktrace}%
 \begin{itemdecl}
 static basic_stacktrace current(size_type skip,
                                 const allocator_type& alloc = allocator_type()) noexcept;
@@ -21496,6 +21505,7 @@ or an empty \tcode{basic_stacktrace} object
 if the \tcode{frames_} initialization failed.
 \end{itemdescr}
 
+\indexlibrarymember{current}{basic_stacktrace}%
 \begin{itemdecl}
 static basic_stacktrace current(size_type skip, size_type max_depth,
                                 const allocator_type& alloc = allocator_type()) noexcept;
@@ -21521,6 +21531,7 @@ or an empty basic_stacktrace object
 if the \tcode{frames_} initialization failed.
 \end{itemdescr}
 
+\indexlibraryctor{basic_stacktrace}%
 \begin{itemdecl}
 basic_stacktrace() noexcept(is_nothrow_default_constructible_v<allocator_type>);
 \end{itemdecl}
@@ -21531,6 +21542,7 @@ basic_stacktrace() noexcept(is_nothrow_default_constructible_v<allocator_type>);
 \tcode{empty()} is \tcode{true}.
 \end{itemdescr}
 
+\indexlibraryctor{basic_stacktrace}%
 \begin{itemdecl}
 explicit basic_stacktrace(const allocator_type& alloc) noexcept;
 \end{itemdecl}
@@ -21545,6 +21557,8 @@ explicit basic_stacktrace(const allocator_type& alloc) noexcept;
 \tcode{empty()} is \tcode{true}.
 \end{itemdescr}
 
+\indexlibraryctor{basic_stacktrace}%
+\indexlibrarymember{operator=}{basic_stacktrace}%
 \begin{itemdecl}
 basic_stacktrace(const basic_stacktrace& other);
 basic_stacktrace(const basic_stacktrace& other, const allocator_type& alloc);
@@ -21565,6 +21579,7 @@ by ensuring that \tcode{empty()} is \tcode{true} on failed allocation.
 
 \rSec3[stacktrace.basic.obs]{Observers}
 
+\indexlibrarymember{const_iterator}{basic_stacktrace}%
 \begin{itemdecl}
 using const_iterator = @\impdef@;
 \end{itemdecl}
@@ -21577,6 +21592,7 @@ meets the
 \oldconcept{RandomAccessIterator} requirements\iref{random.access.iterators}.
 \end{itemdescr}
 
+\indexlibrarymember{get_allocator}{basic_stacktrace}%
 \begin{itemdecl}
 allocator_type get_allocator() const noexcept;
 \end{itemdecl}
@@ -21587,6 +21603,8 @@ allocator_type get_allocator() const noexcept;
 \tcode{frames_.get_allocator()}.
 \end{itemdescr}
 
+\indexlibrarymember{begin}{basic_stacktrace}%
+\indexlibrarymember{cbegin}{basic_stacktrace}%
 \begin{itemdecl}
 const_iterator begin() const noexcept;
 const_iterator cbegin() const noexcept;
@@ -21600,6 +21618,8 @@ If \tcode{empty()} is \tcode{true},
 then it returns the same value as \tcode{end()}.
 \end{itemdescr}
 
+\indexlibrarymember{end}{basic_stacktrace}%
+\indexlibrarymember{cend}{basic_stacktrace}%
 \begin{itemdecl}
 const_iterator end() const noexcept;
 const_iterator cend() const noexcept;
@@ -21611,6 +21631,8 @@ const_iterator cend() const noexcept;
 The end iterator.
 \end{itemdescr}
 
+\indexlibrarymember{rbegin}{basic_stacktrace}%
+\indexlibrarymember{crbegin}{basic_stacktrace}%
 \begin{itemdecl}
 const_reverse_iterator rbegin() const noexcept;
 const_reverse_iterator crbegin() const noexcept;
@@ -21622,6 +21644,8 @@ const_reverse_iterator crbegin() const noexcept;
 \tcode{reverse_iterator(cend())}.
 \end{itemdescr}
 
+\indexlibrarymember{rend}{basic_stacktrace}%
+\indexlibrarymember{crend}{basic_stacktrace}%
 \begin{itemdecl}
 const_reverse_iterator rend() const noexcept;
 const_reverse_iterator crend() const noexcept;
@@ -21633,6 +21657,7 @@ const_reverse_iterator crend() const noexcept;
 \tcode{reverse_iterator(cbegin())}.
 \end{itemdescr}
 
+\indexlibrarymember{empty}{basic_stacktrace}%
 \begin{itemdecl}
 [[nodiscard]] bool empty() const noexcept;
 \end{itemdecl}
@@ -21643,6 +21668,7 @@ const_reverse_iterator crend() const noexcept;
 \tcode{frames_.empty()}.
 \end{itemdescr}
 
+\indexlibrarymember{size}{basic_stacktrace}%
 \begin{itemdecl}
 size_type size() const noexcept;
 \end{itemdecl}
@@ -21653,6 +21679,7 @@ size_type size() const noexcept;
 \tcode{frames_.size()}.
 \end{itemdescr}
 
+\indexlibrarymember{max_size}{basic_stacktrace}%
 \begin{itemdecl}
 size_type max_size() const noexcept;
 \end{itemdecl}
@@ -21663,6 +21690,7 @@ size_type max_size() const noexcept;
 \tcode{frames_.max_size()}.
 \end{itemdescr}
 
+\indexlibrarymember{operator[]}{basic_stacktrace}%
 \begin{itemdecl}
 const_reference operator[](size_type frame_no) const;
 \end{itemdecl}
@@ -21681,6 +21709,7 @@ const_reference operator[](size_type frame_no) const;
 Nothing.
 \end{itemdescr}
 
+\indexlibrarymember{at}{basic_stacktrace}%
 \begin{itemdecl}
 const_reference at(size_type frame_no) const;
 \end{itemdecl}
@@ -21697,6 +21726,7 @@ const_reference at(size_type frame_no) const;
 
 \rSec3[stacktrace.basic.cmp]{Comparisons}
 
+\indexlibrarymember{operator==}{basic_stacktrace}%
 \begin{itemdecl}
 template<class Allocator2>
 friend bool operator==(const basic_stacktrace& x, const basic_stacktrace<Allocator2>& y) noexcept;
@@ -21708,6 +21738,7 @@ friend bool operator==(const basic_stacktrace& x, const basic_stacktrace<Allocat
 \tcode{equal(x.begin(), x.end(), y.begin(), y.end())}
 \end{itemdescr}
 
+\indexlibrarymember{operator<=>}{basic_stacktrace}%
 \begin{itemdecl}
 template<class Allocator2>
 friend strong_ordering
@@ -21725,6 +21756,7 @@ otherwise.
 
 \rSec3[stacktrace.basic.mod]{Modifiers}
 
+\indexlibrarymember{swap}{basic_stacktrace}%
 \begin{itemdecl}
 void swap(basic_stacktrace& other)
   noexcept(allocator_traits<Allocator>::propagate_on_container_swap::value ||
@@ -21739,6 +21771,7 @@ Exchanges the contents of \tcode{*this} and \tcode{other}.
 
 \rSec3[stacktrace.basic.nonmem]{Non-member functions}
 
+\indexlibrarymember{swap}{basic_stacktrace}%
 \begin{itemdecl}
 template<class Allocator>
 void swap(basic_stacktrace<Allocator>& a, basic_stacktrace<Allocator>& b)
@@ -21751,6 +21784,7 @@ void swap(basic_stacktrace<Allocator>& a, basic_stacktrace<Allocator>& b)
 Equivalent to \tcode{a.swap(b)}.
 \end{itemdescr}
 
+\indexlibrarymember{to_string}{basic_stacktrace}%
 \begin{itemdecl}
 string to_string(const stacktrace_entry& f);
 \end{itemdecl}
@@ -21766,6 +21800,7 @@ including information from
 \tcode{f.source_file()} and \tcode{f.source_line()}.
 \end{itemdescr}
 
+\indexlibrarymember{to_string}{basic_stacktrace}%
 \begin{itemdecl}
 template<class Allocator>
 string to_string(const basic_stacktrace<Allocator>& st);
@@ -21780,6 +21815,7 @@ The number of lines is not guaranteed to be equal to \tcode{st.size()}.
 \end{note}
 \end{itemdescr}
 
+\indexlibrarymember{operator<<}{basic_stacktrace}%
 \begin{itemdecl}
 template<class charT, class traits>
 basic_ostream<charT, traits>&
