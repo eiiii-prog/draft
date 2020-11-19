@@ -870,8 +870,7 @@ concept @\defexposconcept{cpp17-iterator}@ =
     {   *i } -> @\exposconcept{can-reference}@;
     {  ++i } -> @\libconcept{same_as}@<I&>;
     { *i++ } -> @\exposconcept{can-reference}@;
-    && @\libconcept{copyable}@<I>;
-  };
+  } && @\libconcept{copyable}@<I>;
 
 template<class I>
 concept @\defexposconcept{cpp17-input-iterator}@ =
