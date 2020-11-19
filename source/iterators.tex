@@ -771,7 +771,7 @@ template<@\exposconcept{has-member-value-type}@ T>
 struct indirectly_readable_traits<T>
   : @\placeholder{cond-value-type}@<typename T::value_type> { };
 
-template<@\exposconcept{has-member-value-type}@ T>
+template<@\exposconcept{has-member-element-type}@ T>
 struct indirectly_readable_traits<T>
   : @\placeholder{cond-value-type}@<typename T::element_type> { };
 
