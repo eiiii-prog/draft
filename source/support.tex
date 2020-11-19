@@ -5236,7 +5236,7 @@ coroutine_handle& operator=(nullptr_t) noexcept;
 
 \rSec3[coroutine.handle.conv]{Conversion}
 
-\indexlibraryctor{coroutine_handle}%
+\indexlibrarymember{operator coroutine_handle<>}{coroutine_handle}%
 \begin{itemdecl}
 constexpr operator coroutine_handle<>() const noexcept;
 \end{itemdecl}
@@ -5476,7 +5476,7 @@ namespace std {
 
 \rSec4[coroutine.handle.noop.conv]{Conversion}
 
-\indexlibrarymember{operator bool}{coroutine_handle<noop_coroutine_promise>}%
+\indexlibrarymember{operator coroutine_handle<>}{coroutine_handle<noop_coroutine_promise>}%
 \begin{itemdecl}
 constexpr operator coroutine_handle<>() const noexcept;
 \end{itemdecl}
