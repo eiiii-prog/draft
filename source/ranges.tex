@@ -6330,7 +6330,7 @@ namespace std::ranges {
     constexpr auto begin() requires (!@\exposconcept{simple-view}@<V>)
     { return @\exposid{iterator}@<false>(ranges::begin(@\exposid{base_}@)); }
 
-    constexpr auto begin() const requires range<const V>
+    constexpr auto begin() const requires @\libconcept{range}@<const V>
     { return @\exposid{iterator}@<true>(ranges::begin(@\exposid{base_}@)); }
 
     constexpr auto end() requires (!@\exposconcept{simple-view}@<V> && !common_range<V>)
