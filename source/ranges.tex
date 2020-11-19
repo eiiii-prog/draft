@@ -6083,15 +6083,13 @@ namespace std::ranges {
 
 \indexlibraryctor{common_view}%
 \begin{itemdecl}
-template<viewable_range R>
-  requires (!common_range<R> && @\libconcept{constructible_from}@<V, views::all_t<R>>)
-constexpr explicit common_view(R&& r);
+constexpr explicit common_view(V base);
 \end{itemdecl}
 
 \begin{itemdescr}
 \pnum
 \effects
-Initializes \exposid{base_} with \tcode{views::all(std::forward<R>(r))}.
+Initializes \exposid{base_} with \tcode{std::move(base)}.
 \end{itemdescr}
 
 \rSec2[range.reverse]{Reverse view}
