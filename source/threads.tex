@@ -2915,7 +2915,7 @@ namespace std {
   template<class... MutexTypes>
   class scoped_lock {
   public:
-    using mutex_type = @\seebelow@; // Only if \tcode{sizeof...(MutexTypes) == 1} is \tcode{true}
+    using mutex_type = @\seebelow@;     // Only if \tcode{sizeof...(MutexTypes) == 1} is \tcode{true}
 
     explicit scoped_lock(MutexTypes&... m);
     explicit scoped_lock(adopt_lock_t, MutexTypes&... m);
